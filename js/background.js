@@ -1,5 +1,5 @@
 /*
- * Author: Gregory Jackson
+ * Copyright (c) 2017 Gregory Jackson. All rights reserved.
  */
 
 (function (window, chrome, restCall) {
