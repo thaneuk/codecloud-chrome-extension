@@ -51,7 +51,13 @@
                 data: this.callData
             }).then(response => {
                 if (response && response.values && Array.isArray(response.values)) {
-                    response.values.forEach(pullRequest => this.postNotification(pullRequest));
+                    response.values.forEach(pullRequest => {
+                        if (pullRequest.reviewers.reduce((iss, reviewer) => {
+                                return reviewer.status === 'UNAPPROVED' ? iss : iss + 1;
+                            }, 0) === 0) {
+                            this.postNotification(pullRequest);
+                        }
+                    });
                 }
 
                 this.startPoll();
