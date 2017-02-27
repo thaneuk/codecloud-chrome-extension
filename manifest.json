@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "CodeCloud Pulls Chrome Extension",
+  "short_name": "CodeCloud Pulls Extension",
+  "description": "Extension to alert user off pull requests requiring review",
+  "version": "1.0.1",
+  "icons": {
+    "96": "images/icon.png"
+  },
+  "browser_action": {
+    "default_title": "CodeCloud Inbox",
+    "default_icon": "images/icon.png"
+  },
+  "options_page": "options.html",
+  "background": {
+    "scripts": [
+      "js/ajax.js",
+      "js/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "storage",
+    "notifications",
+    "https://*/*"
+  ]
+}
