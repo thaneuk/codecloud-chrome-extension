@@ -57,15 +57,14 @@
             });
 
             ajaxCall.addEventListener('load', () => {
-                try {
-                    resolve(window.JSON.parse(ajaxCall.responseText));
-                } catch (e) {
-                    resolve(ajaxCall.response);
-                }
+                resolve(ajaxCall.response);
                 ajaxCall = null;
             });
 
             ajaxCall.open(opts.method || 'GET', opts.url + getData, true);
+
+            ajaxCall.responseType = 'json';
+
             ajaxCall.send(postData);
         });
     };
