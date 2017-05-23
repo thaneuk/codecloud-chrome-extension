@@ -3,7 +3,7 @@
   "name": "CodeCloud Pulls Chrome Extension",
   "short_name": "CodeCloud Pulls Extension",
   "description": "Extension to alert user to pull requests requiring review",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "icons": {
     "96": "images/icon.png"
   },
