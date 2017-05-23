@@ -80,10 +80,12 @@
             window.clearTimeout(this.poll);
         },
         postNotification: function (pullRequest) {
-            this.pulls[pullRequest.id.toString()] = pullRequest;
+            let id = pullRequest.id.toString();
+
+            this.pulls[id] = pullRequest;
 
             if (pullRequest.open) {
-                chrome.notifications.create(pullRequest.id.toString(), {
+                chrome.notifications.create(id, {
                     type: 'basic',
                     iconUrl: 'images/icon.png',
                     title: `Pull request from ${pullRequest.author.user.displayName}`,
@@ -94,7 +96,7 @@
                     }]
                 });
             } else {
-                chrome.notifications.clear(pullRequest.id.toString());
+                chrome.notifications.clear(id);
             }
         },
         clickedNotificationButton: function (id, button) {
