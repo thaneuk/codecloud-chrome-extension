@@ -102,6 +102,7 @@
                 chrome.tabs.create({
                     url: this.pulls[id].links.self[0].href
                 });
+                chrome.notifications.clear(id);
             }
         },
         clickedNotification: function (id) {
